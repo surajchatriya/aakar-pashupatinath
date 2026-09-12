@@ -1,86 +1,18 @@
 <!doctype html>
+
 <html lang="hi">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>सदस्य प्रबंधन | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Excel पढ़ने के लिए SheetJS -->
+<!-- Excel Reader -->
+
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-
-<style>
-.member-loading{
-    text-align:center;
-    padding:30px;
-    font-size:18px;
-    color:#7a4b00;
-}
-
-.member-error{
-    background:#fff1f0;
-    color:#b42318;
-    border:1px solid #f5c2c0;
-    padding:15px;
-    border-radius:12px;
-    margin:20px 0;
-    line-height:1.6;
-}
-
-.member-success{
-    background:#effaf1;
-    color:#18753c;
-    border:1px solid #b9e3c3;
-    padding:12px 15px;
-    border-radius:10px;
-    margin:15px 0;
-}
-
-.address-cell{
-    max-width:220px;
-    line-height:1.5;
-}
-
-.member-id{
-    font-size:12px;
-    color:#777;
-    display:block;
-    margin-top:3px;
-}
-
-.status.active{
-    color:#137333;
-}
-
-.status.expired{
-    color:#b42318;
-}
-
-.status.due{
-    color:#a15c00;
-}
-
-.detail-box{
-    text-align:left;
-    line-height:1.8;
-}
-
-.detail-box b{
-    color:#7a4b00;
-}
-
-@media(max-width:800px){
-    .member-table-wrap{
-        overflow-x:auto;
-    }
-
-    .member-table{
-        min-width:1000px;
-    }
-}
-</style>
 
 </head>
 
@@ -90,26 +22,28 @@
 
 <a class="brand" href="index.html" style="text-decoration:none">
     <div class="om">ॐ</div>
-    <div>
-        <b>आकार श्री पशुपतिनाथ</b>
-        <small>नेपाली धर्मसमाज</small>
-    </div>
+
+```
+<div>
+    <b>आकार श्री पशुपतिनाथ</b>
+    <small>नेपाली धर्मसमाज</small>
+</div>
+```
+
 </a>
 
 <button class="hamb"
 onclick="document.querySelector('nav').classList.toggle('open')">
-☰
-</button>
+☰ </button>
 
 <nav>
-    <a href="index.html">मुख्य पृष्ठ</a>
-    <a href="itihas.html">मंदिर का इतिहास</a>
-    <a href="samrakshak.html">संरक्षक</a>
-    <a class="active" href="sadasya.html">सदस्य प्रबंधन</a>
+<a href="index.html">मुख्य पृष्ठ</a>
+<a href="itihas.html">मंदिर का इतिहास</a>
+<a href="samrakshak.html">संरक्षक</a>
+<a class="active" href="sadasya.html">सदस्य प्रबंधन</a>
 </nav>
 
 </header>
-
 
 <section class="member-hero">
 
@@ -120,17 +54,14 @@ onclick="document.querySelector('nav').classList.toggle('open')">
 <h1>सदस्य प्रबंधन</h1>
 
 <p>
-सदस्यता शुल्क, वैधता, पता और WhatsApp reminder
-एक ही जगह देखें।
+सदस्यता शुल्क, वैधता, पता और WhatsApp reminder एक ही जगह देखें।
 </p>
 
 </div>
 
 </section>
 
-
 <section class="section member-section">
-
 
 <!-- SUMMARY -->
 
@@ -148,7 +79,7 @@ onclick="document.querySelector('nav').classList.toggle('open')">
 
 <div>
 <b id="due">0</b>
-<span>इस माह देय</span>
+<span>शुल्क देय</span>
 </div>
 
 <div>
@@ -158,13 +89,16 @@ onclick="document.querySelector('nav').classList.toggle('open')">
 
 </div>
 
+<!-- STATUS -->
 
-<!-- Excel status -->
-
-<div id="excelStatus" class="member-loading">
-📊 Excel से सदस्य डेटा लोड हो रहा है...
+<div id="message"
+style="
+padding:12px;
+margin:15px 0;
+border-radius:10px;
+display:none;
+">
 </div>
-
 
 <!-- TOOLBAR -->
 
@@ -172,8 +106,8 @@ onclick="document.querySelector('nav').classList.toggle('open')">
 
 <input
 id="search"
-type="text"
 placeholder="नाम, मोबाइल या सदस्य ID खोजें…"
+
 >
 
 <select id="filter">
@@ -193,7 +127,6 @@ placeholder="नाम, मोबाइल या सदस्य ID खोज�
 </button>
 
 </div>
-
 
 <!-- TABLE -->
 
@@ -226,11 +159,9 @@ placeholder="नाम, मोबाइल या सदस्य ID खोज�
 <tbody id="memberRows">
 
 <tr>
-
 <td colspan="7" class="empty">
-Excel से डेटा लोड हो रहा है...
+Excel से सदस्य डेटा लोड हो रहा है...
 </td>
-
 </tr>
 
 </tbody>
@@ -239,20 +170,16 @@ Excel से डेटा लोड हो रहा है...
 
 </div>
 
-
 <div class="member-note">
 
 <b>💡 WhatsApp सूचना:</b>
 
-“WhatsApp reminder” पर क्लिक करने से सदस्य के मोबाइल नंबर पर तैयार संदेश खुलेगा।
-
+WhatsApp बटन दबाने पर सदस्य के मोबाइल नंबर पर तैयार संदेश खुलेगा।
 भेजने से पहले आप संदेश बदल सकते हैं।
 
 </div>
 
-
 </section>
-
 
 <footer>
 
@@ -264,53 +191,22 @@ Excel से डेटा लोड हो रहा है...
 
 </footer>
 
-
 <script>
 
-/* =====================================================
-   MEMBER MANAGEMENT
-   Excel File:
-   data/members-2026.xlsx
-   ===================================================== */
+const excelPath = "data/members-2026.xlsx";
 
 let members = [];
 
 
-/* -----------------------------------------------------
-   Excel column names
-   ----------------------------------------------------- */
+// ------------------------------------
+// DATE FORMAT
+// ------------------------------------
 
-const COLUMN = {
+function formatDate(value) {
 
-    id: "सदस्य ID",
+    if (!value) return "";
 
-    name: "नाम",
-
-    phone: "मोबाइल",
-
-    address: "पता",
-
-    start: "सदस्यता शुरू",
-
-    end: "सदस्यता समाप्त",
-
-    status: "स्थिति"
-
-};
-
-
-/* -----------------------------------------------------
-   Convert Excel date to DD-MM-YYYY
-   ----------------------------------------------------- */
-
-function formatDate(value){
-
-    if(!value){
-        return "";
-    }
-
-    /* अगर Excel से Date object आया */
-    if(value instanceof Date){
+    if (value instanceof Date) {
 
         const d = String(value.getDate()).padStart(2,"0");
         const m = String(value.getMonth()+1).padStart(2,"0");
@@ -319,231 +215,219 @@ function formatDate(value){
         return `${d}-${m}-${y}`;
     }
 
-    let text = String(value).trim();
-
-    /* अगर पहले से DD-MM-YYYY है */
-    if(/^\d{1,2}-\d{1,2}-\d{4}$/.test(text)){
-
-        const p = text.split("-");
-
-        return `${p[0].padStart(2,"0")}-${p[1].padStart(2,"0")}-${p[2]}`;
-    }
-
-    /* Excel serial number */
-    if(!isNaN(value) && Number(value) > 20000){
-
-        const excelDate =
-            XLSX.SSF.parse_date_code(Number(value));
-
-        if(excelDate){
-
-            return `${String(excelDate.d).padStart(2,"0")}-${String(excelDate.m).padStart(2,"0")}-${excelDate.y}`;
-        }
-    }
-
-    return text;
+    return String(value);
 }
 
 
-/* -----------------------------------------------------
-   Normalize status
-   ----------------------------------------------------- */
+// ------------------------------------
+// STATUS
+// ------------------------------------
 
-function normalizeStatus(status){
+function normalizeStatus(value) {
 
-    const s = String(status || "")
+    const s = String(value || "")
         .trim()
         .toLowerCase();
 
-    if(
-        s === "active" ||
-        s === "सक्रिय"
-    ){
+    if (s === "active" || s === "सक्रिय")
         return {
-            status:"active",
-            label:"सक्रिय"
+            value: "active",
+            label: "सक्रिय"
         };
-    }
 
-    if(
+    if (
+        s === "due" ||
+        s === "शुल्क देय" ||
+        s === "देय"
+    )
+        return {
+            value: "due",
+            label: "शुल्क देय"
+        };
+
+    if (
         s === "expired" ||
         s === "समाप्त"
-    ){
+    )
         return {
-            status:"expired",
-            label:"समाप्त"
+            value: "expired",
+            label: "समाप्त"
         };
-    }
-
-    if(
-        s === "due" ||
-        s === "शुल्क देय"
-    ){
-        return {
-            status:"due",
-            label:"शुल्क देय"
-        };
-    }
 
     return {
-        status:"active",
-        label:"सक्रिय"
+        value: "active",
+        label: "सक्रिय"
     };
 }
 
 
-/* -----------------------------------------------------
-   Load Excel
-   ----------------------------------------------------- */
+// ------------------------------------
+// LOAD EXCEL
+// ------------------------------------
 
-async function loadMembersFromExcel(){
+async function loadExcel() {
 
-    const statusBox =
-        document.getElementById("excelStatus");
+    const message = document.getElementById("message");
 
-    try{
+    try {
 
-        const excelPath =
-            "data/members-2026.xlsx";
+        message.style.display = "block";
 
-        const response =
-            await fetch(excelPath);
+        message.innerHTML =
+            "⏳ Excel से सदस्य डेटा लोड हो रहा है...";
 
-        if(!response.ok){
+
+        const response = await fetch(
+            excelPath + "?v=" + Date.now()
+        );
+
+
+        if (!response.ok) {
 
             throw new Error(
-                "Excel file नहीं मिली। कृपया data/members-2026.xlsx check करें।"
+                "Excel file नहीं मिली: " +
+                response.status
             );
 
         }
 
-        const arrayBuffer =
+
+        const buffer =
             await response.arrayBuffer();
 
 
-        /* Excel read */
-
         const workbook =
-            XLSX.read(arrayBuffer, {
-                type:"array",
-                cellDates:true
+            XLSX.read(buffer, {
+                type: "array",
+                cellDates: true
             });
 
-
-        /* First sheet */
 
         const sheetName =
             workbook.SheetNames[0];
 
-        const worksheet =
+
+        const sheet =
             workbook.Sheets[sheetName];
 
 
-        /* Convert rows to JSON */
-
-        const rows =
+        const data =
             XLSX.utils.sheet_to_json(
-                worksheet,
+                sheet,
                 {
-                    defval:""
+                    defval: ""
                 }
             );
 
 
-        /* Convert Excel rows */
+        if (!data.length) {
 
-        members = rows
+            throw new Error(
+                "Excel में कोई सदस्य रिकॉर्ड नहीं मिला।"
+            );
 
-        .filter(row => {
-
-            return String(
-                row[COLUMN.id] || ""
-            ).trim() !== "";
-
-        })
-
-        .map(row => {
-
-            const statusInfo =
-                normalizeStatus(
-                    row[COLUMN.status]
-                );
-
-            return {
-
-                id:String(
-                    row[COLUMN.id] || ""
-                ).trim(),
-
-                name:String(
-                    row[COLUMN.name] || ""
-                ).trim(),
-
-                phone:String(
-                    row[COLUMN.phone] || ""
-                )
-                .replace(/\D/g,""),
-
-                address:String(
-                    row[COLUMN.address] || ""
-                ).trim(),
-
-                start:formatDate(
-                    row[COLUMN.start]
-                ),
-
-                end:formatDate(
-                    row[COLUMN.end]
-                ),
-
-                status:statusInfo.status,
-
-                label:statusInfo.label
-
-            };
-
-        });
+        }
 
 
-        /* Success */
+        members = data
+            .filter(row =>
+                String(row["नाम"] || "").trim() !== ""
+            )
+            .map(row => {
 
-        statusBox.className =
-            "member-success";
+                const status =
+                    normalizeStatus(
+                        row["स्थिति"]
+                    );
 
-        statusBox.innerHTML =
-            `✅ Excel से <b>${members.length}</b> सदस्य सफलतापूर्वक लोड हुए।`;
+
+                return {
+
+                    id:
+                        String(
+                            row["सदस्य ID"] || ""
+                        ).trim(),
+
+                    name:
+                        String(
+                            row["नाम"] || ""
+                        ).trim(),
+
+                    phone:
+                        String(
+                            row["मोबाइल"] || ""
+                        ).replace(/\D/g, ""),
+
+                    address:
+                        String(
+                            row["पता"] || ""
+                        ).trim(),
+
+                    start:
+                        formatDate(
+                            row["सदस्यता शुरू"]
+                        ),
+
+                    end:
+                        formatDate(
+                            row["सदस्यता समाप्त"]
+                        ),
+
+                    status:
+                        status.value,
+
+                    label:
+                        status.label
+
+                };
+
+            });
+
 
         updateSummary();
 
         render();
 
 
-    }catch(error){
+        message.innerHTML =
+            "✅ Excel से " +
+            members.length +
+            " सदस्य सफलतापूर्वक लोड हुए।";
+
+
+        message.style.background =
+            "#e8f7e8";
+
+        message.style.color =
+            "#176b17";
+
+
+    } catch (error) {
 
         console.error(error);
 
-        statusBox.className =
-            "member-error";
+        message.style.display = "block";
 
-        statusBox.innerHTML =
+        message.innerHTML =
+            "❌ <b>Excel लोड नहीं हो सकी</b><br><br>" +
+            error.message +
+            "<br><br>" +
+            "Excel file का path होना चाहिए:<br>" +
+            "<b>data/members-2026.xlsx</b>";
 
-            `❌ <b>Excel लोड नहीं हो सकी</b><br><br>
 
-            ${error.message}
+        message.style.background =
+            "#ffe8e8";
 
-            <br><br>
+        message.style.color =
+            "#9b111e";
 
-            कृपया सुनिश्चित करें कि आपकी GitHub repository में file इस जगह हो:
-
-            <br><br>
-
-            <b>data/members-2026.xlsx</b>`;
 
         document.getElementById("memberRows").innerHTML =
 
             `<tr>
                 <td colspan="7" class="empty">
-                    Excel file नहीं मिली।
+                    Excel file से सदस्य डेटा लोड नहीं हो सका।
                 </td>
             </tr>`;
 
@@ -552,61 +436,59 @@ async function loadMembersFromExcel(){
 }
 
 
-/* -----------------------------------------------------
-   Summary counts
-   ----------------------------------------------------- */
+// ------------------------------------
+// SUMMARY
+// ------------------------------------
 
-function updateSummary(){
+function updateSummary() {
 
-    const total =
+    document.getElementById("total").textContent =
         members.length;
 
-    const active =
+
+    document.getElementById("active").textContent =
         members.filter(
             m => m.status === "active"
         ).length;
 
-    const expired =
-        members.filter(
-            m => m.status === "expired"
-        ).length;
 
-
-    /*
-       Due members:
-       जिनकी स्थिति Due है
-       या जिनकी membership expiry
-       चालू महीने में है
-    */
-
-    const due =
+    document.getElementById("due").textContent =
         members.filter(
             m => m.status === "due"
         ).length;
 
 
-    document.getElementById("total")
-        .textContent = total;
-
-    document.getElementById("active")
-        .textContent = active;
-
-    document.getElementById("due")
-        .textContent = due;
-
-    document.getElementById("expired")
-        .textContent = expired;
+    document.getElementById("expired").textContent =
+        members.filter(
+            m => m.status === "expired"
+        ).length;
 
 }
 
 
-/* -----------------------------------------------------
-   WhatsApp
-   ----------------------------------------------------- */
+// ------------------------------------
+// HTML ESCAPE
+// ------------------------------------
 
-function wa(member){
+function escapeHtml(value) {
 
-    if(!member.phone){
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+// ------------------------------------
+// WHATSAPP
+// ------------------------------------
+
+function wa(member) {
+
+    if (!member.phone) {
 
         alert("इस सदस्य का मोबाइल नंबर उपलब्ध नहीं है।");
 
@@ -615,16 +497,10 @@ function wa(member){
     }
 
 
-    let phone =
-        member.phone;
+    let phone = member.phone;
 
 
-    /*
-       अगर 10 digit Indian number है
-       तो +91 automatically add होगा
-    */
-
-    if(phone.length === 10){
+    if (phone.length === 10) {
 
         phone = "91" + phone;
 
@@ -632,50 +508,39 @@ function wa(member){
 
 
     const message =
-
 `नमस्कार ${member.name} जी 🙏
 
-आकार श्री पशुपतिनाथ नेपाली धर्मसमाज की ओर से आपको सादर नमस्कार।
-
-आपकी सदस्यता की जानकारी:
+आकार श्री पशुपतिनाथ नेपाली धर्मसमाज की सदस्यता शुल्क / सदस्यता संबंधी सूचना।
 
 सदस्य ID: ${member.id}
-सदस्यता शुरू: ${member.start}
-सदस्यता समाप्त: ${member.end}
 
-कृपया अपनी सदस्यता समय पर नवीनीकरण / शुल्क जमा करें।
+सदस्यता समाप्ति:
+${member.end}
 
-आकार श्री पशुपतिनाथ नेपाली धर्मसमाज
+कृपया समय पर सदस्यता शुल्क जमा कर धर्मसमाज से जुड़े रहें।
 
 हर हर महादेव 🕉️`;
 
 
-    const url =
+    window.open(
         "https://wa.me/" +
         phone +
         "?text=" +
-        encodeURIComponent(message);
-
-
-    window.open(
-        url,
+        encodeURIComponent(message),
         "_blank"
     );
 
 }
 
 
-/* -----------------------------------------------------
-   Member detail
-   ----------------------------------------------------- */
+// ------------------------------------
+// DETAILS
+// ------------------------------------
 
-function showDetails(member){
+function showDetails(member) {
 
     alert(
-
-`सदस्य विवरण
-
-सदस्य ID: ${member.id}
+`सदस्य ID: ${member.id}
 
 नाम: ${member.name}
 
@@ -688,49 +553,27 @@ function showDetails(member){
 सदस्यता समाप्त: ${member.end}
 
 स्थिति: ${member.label}`
-
     );
 
 }
 
 
-/* -----------------------------------------------------
-   HTML safety
-   ----------------------------------------------------- */
+// ------------------------------------
+// RENDER
+// ------------------------------------
 
-function escapeHTML(value){
+function render() {
 
-    return String(value || "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* -----------------------------------------------------
-   Render members
-   ----------------------------------------------------- */
-
-function render(){
-
-    const searchInput =
-        document.getElementById("search");
-
-    const filterInput =
-        document.getElementById("filter");
-
-
-    const q =
-        searchInput.value
-            .toLowerCase()
-            .trim();
+    const query =
+        document.getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
 
 
     const filter =
-        filterInput.value;
+        document.getElementById("filter")
+        .value;
 
 
     const rows =
@@ -741,43 +584,39 @@ function render(){
                 member.status === filter;
 
 
-            const searchText = (
-
-                member.id + " " +
-                member.name + " " +
-                member.phone + " " +
-                member.address
-
-            ).toLowerCase();
-
-
-            const matchesSearch =
-                searchText.includes(q);
+            const searchable =
+                (
+                    member.id +
+                    " " +
+                    member.name +
+                    " " +
+                    member.phone +
+                    " " +
+                    member.address
+                )
+                .toLowerCase();
 
 
             return (
                 matchesFilter &&
-                matchesSearch
+                searchable.includes(query)
             );
 
         });
 
 
     const tbody =
-        document.getElementById(
-            "memberRows"
-        );
+        document.getElementById("memberRows");
 
 
-    if(rows.length === 0){
+    if (!rows.length) {
 
         tbody.innerHTML =
-
-            `<tr>
-                <td colspan="7" class="empty">
-                    कोई सदस्य नहीं मिला।
-                </td>
-            </tr>`;
+        `<tr>
+            <td colspan="7" class="empty">
+                कोई सदस्य नहीं मिला।
+            </td>
+        </tr>`;
 
         return;
 
@@ -785,86 +624,50 @@ function render(){
 
 
     tbody.innerHTML =
-
         rows.map(member => `
 
         <tr>
 
             <td>
-
-                <b>
-                    ${escapeHTML(member.name)}
-                </b>
-
-                <span class="member-id">
-                    ID: ${escapeHTML(member.id)}
-                </span>
-
+                <b>${escapeHtml(member.name)}</b>
+                <small>
+                    ${escapeHtml(member.id)}
+                </small>
             </td>
-
 
             <td>
-
-                ${
-                    member.phone
-                    ? "+" +
-                      (
-                        member.phone.length === 10
-                        ? "91 " + member.phone
-                        : member.phone
-                      )
-                    : "—"
-                }
-
+                ${escapeHtml(member.phone)}
             </td>
-
-
-            <td class="address-cell">
-
-                ${escapeHTML(member.address) || "—"}
-
-            </td>
-
 
             <td>
-
-                ${escapeHTML(member.start) || "—"}
-
+                ${escapeHtml(member.address)}
             </td>
 
-
             <td>
-
-                ${escapeHTML(member.end) || "—"}
-
+                ${escapeHtml(member.start)}
             </td>
 
+            <td>
+                ${escapeHtml(member.end)}
+            </td>
 
             <td>
-
                 <span class="status ${member.status}">
-
-                    ${escapeHTML(member.label)}
-
+                    ${escapeHtml(member.label)}
                 </span>
-
             </td>
-
 
             <td>
 
                 <button
                     class="wa-btn"
-                    onclick="wa(${JSON.stringify(member).replace(/"/g,'&quot;')})"
-                >
+                    onclick='wa(${JSON.stringify(member)})'>
                     💬 WhatsApp
                 </button>
 
-
                 <button
                     class="detail-btn"
-                    onclick="showDetails(${JSON.stringify(member).replace(/"/g,'&quot;')})"
-                >
+                    onclick='showDetails(${JSON.stringify(member)})'>
                     विवरण
                 </button>
 
@@ -877,40 +680,31 @@ function render(){
 }
 
 
-/* -----------------------------------------------------
-   Search / Filter
-   ----------------------------------------------------- */
+// ------------------------------------
+// EVENTS
+// ------------------------------------
 
 document
     .getElementById("search")
-    .addEventListener(
-        "input",
-        render
-    );
+    .addEventListener("input", render);
 
 
 document
     .getElementById("filter")
-    .addEventListener(
-        "change",
-        render
-    );
+    .addEventListener("change", render);
 
 
-/* -----------------------------------------------------
-   Footer year
-   ----------------------------------------------------- */
-
-document.getElementById("year")
+document
+    .getElementById("year")
     .textContent =
     new Date().getFullYear();
 
 
-/* -----------------------------------------------------
-   START
-   ----------------------------------------------------- */
+// ------------------------------------
+// START
+// ------------------------------------
 
-loadMembersFromExcel();
+loadExcel();
 
 </script>
 
