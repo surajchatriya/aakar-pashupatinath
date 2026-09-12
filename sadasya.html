@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>सदस्य प्रबंधन | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <a class="brand" href="index.html" style="text-decoration:none"><div class="om">ॐ</div><div><b>आकार श्री पशुपतिनाथ</b><small>नेपाली धर्मसमाज</small></div></a>
+ <button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+ <nav><a href="index.html">मुख्य पृष्ठ</a><a href="itihas.html">मंदिर का इतिहास</a><a href="samrakshak.html">संरक्षक</a><a class="active" href="sadasya.html">सदस्य प्रबंधन</a></nav>
+</header>
+<section class="member-hero"><div><span>🤝 धर्मसमाज परिवार</span><h1>सदस्य प्रबंधन</h1><p>सदस्यता शुल्क, वैधता, अगली देय तारीख और WhatsApp reminder एक ही जगह देखें।</p></div></section>
+<section class="section member-section">
+ <div class="member-summary">
+  <div><b id="total">5</b><span>कुल सदस्य</span></div><div><b id="active">4</b><span>सक्रिय सदस्य</span></div><div><b id="due">2</b><span>इस माह देय</span></div><div><b id="expired">1</b><span>समाप्त सदस्यता</span></div>
+ </div>
+ <div class="member-toolbar"><input id="search" placeholder="नाम, मोबाइल या सदस्य ID खोजें…"><select id="filter"><option value="all">सभी सदस्य</option><option value="active">सक्रिय</option><option value="due">शुल्क देय</option><option value="expired">समाप्त</option></select><button class="btn" onclick="window.print()">🖨️ सूची प्रिंट करें</button></div>
+ <div class="member-table-wrap"><table class="member-table"><thead><tr><th>सदस्य</th><th>मोबाइल</th><th>सदस्यता वैधता</th><th>अगली शुल्क तारीख</th><th>स्थिति</th><th>कार्रवाई</th></tr></thead><tbody id="memberRows"></tbody></table></div>
+ <div class="member-note"><b>💡 WhatsApp सूचना:</b> “WhatsApp reminder” पर क्लिक करने से सदस्य के मोबाइल नंबर पर तैयार संदेश खुलेगा। भेजने से पहले आप संदेश बदल सकते हैं। Demo में दिए नंबर केवल परीक्षण के लिए हैं।</div>
+</section>
+<footer>ॐ आकार श्री पशुपतिनाथ नेपाली धर्मसमाज <span>© <b id="year"></b> सर्वाधिकार सुरक्षित</span></footer>
+<script>
+const members=[
+ {id:'NS-001',name:'सुरेश बहादुर',phone:'919876543210',valid:'01 Apr 2026 – 31 Mar 2027',due:'10 Sep 2026',status:'active',label:'सक्रिय'},
+ {id:'NS-002',name:'मोहन सिंह',phone:'919876543211',valid:'01 Apr 2026 – 31 Mar 2027',due:'12 Sep 2026',status:'due',label:'शुल्क देय'},
+ {id:'NS-003',name:'दीपक थापा',phone:'919876543212',valid:'01 Jan 2026 – 31 Dec 2026',due:'20 Dec 2026',status:'active',label:'सक्रिय'},
+ {id:'NS-004',name:'कमला देवी',phone:'919876543213',valid:'01 Apr 2025 – 31 Mar 2026',due:'31 Mar 2026',status:'expired',label:'समाप्त'},
+ {id:'NS-005',name:'राजेश अधिकारी',phone:'919876543214',valid:'01 Apr 2026 – 31 Mar 2027',due:'25 Sep 2026',status:'due',label:'शुल्क देय'}
+];
+function wa(m){const msg=`नमस्कार ${m.name} जी 🙏\nआकार श्री पशुपतिनाथ नेपाली धर्मसमाज की सदस्यता शुल्क ${m.due} को देय है। कृपया समय पर सदस्यता शुल्क जमा कर धर्मसमाज से जुड़े रहें।\n\nहर हर महादेव 🕉️`;window.open('https://wa.me/'+m.phone+'?text='+encodeURIComponent(msg),'_blank')}
+function render(){const q=document.getElementById('search').value.toLowerCase();const f=document.getElementById('filter').value;const rows=members.filter(m=>(f==='all'||m.status===f)&&(m.name.toLowerCase().includes(q)||m.phone.includes(q)||m.id.toLowerCase().includes(q)));document.getElementById('memberRows').innerHTML=rows.map(m=>`<tr><td><b>${m.name}</b><small>${m.id}</small></td><td>+${m.phone.slice(0,2)} ${m.phone.slice(2)}</td><td>${m.valid}</td><td>${m.due}</td><td><span class="status ${m.status}">${m.label}</span></td><td><button class="wa-btn" onclick='wa(${JSON.stringify(m)})'>💬 WhatsApp</button><button class="detail-btn" onclick="alert('सदस्य ID: ${m.id}\\nनाम: ${m.name}\\nसदस्यता: ${m.valid}\\nअगली शुल्क तारीख: ${m.due}')">विवरण</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">कोई सदस्य नहीं मिला।</td></tr>'}
+document.getElementById('search').oninput=render;document.getElementById('filter').onchange=render;document.getElementById('year').textContent=new Date().getFullYear();render();
+</script>
+</body></html>
