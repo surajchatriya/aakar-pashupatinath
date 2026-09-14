@@ -9,13 +9,18 @@
 <body>
 
 <header>
-<a class="brand" href="index.html" style="text-decoration:none">
-  <div class="om">ॐ</div>
-  <div>
-    <b>आकार श्री पशुपतिनाथ</b>
-    <small>नेपाली धर्मसमाज</small>
-  </div>
-</a>
+<header>
+  <!-- ब्रांड एरिया (लोगो और टेक्स्ट) -->
+  <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+    <div class="logo-area"> 
+      <img src="logo.png" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज लोगो" class="logo-header-img">
+    </div>
+    <!-- ये क्लास दोनों को ऊपर-नीचे रखेगी -->
+    <div class="brand-text">
+      <b>आकार श्री पशुपतिनाथ</b>
+      <small>नेपाली धर्मसमाज</small>
+    </div>
+  </a>
 <button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
 <nav>
   <a href="index.html">मुख्य पृष्ठ</a>
