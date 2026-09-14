@@ -1,6 +1,559 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>मुख्य संरक्षक | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="brand"><div class="om">ॐ</div><div><b>आकार श्री पशुपतिनाथ</b><small>नेपाली धर्मसमाज</small></div></div><nav><a href="index.html#home">मुख्य पृष्ठ</a><a href="index.html#notice">सूचना</a><a href="index.html#daily">दैनिक कार्यक्रम</a><a href="index.html#samrakshak">संरक्षक</a><a href="itihas.html">मंदिर का इतिहास</a></nav></header>
-<section class="profile-hero"><div class="profile-card"><a class="back" href="index.html#samrakshak">← धर्मसमाज परिवार पर वापस जाएँ</a><div class="profile-photo">ॐ</div><div class="tilak">॥ श्री पशुपतिनाथ की कृपा ॥</div><div class="role">मुख्य संरक्षक</div><h1>नाम यहाँ जोड़ें</h1><div class="divider">❖</div><p class="quote">“धर्म केवल पूजा नहीं, बल्कि सेवा, संस्कार और समाज के प्रति हमारी जिम्मेदारी भी है।”</p><p>मुख्य संरक्षक का संक्षिप्त परिचय यहाँ लिखा जा सकता है। धर्मसमाज के प्रति उनके योगदान, सेवा भावना, मार्गदर्शन और सामाजिक कार्यों की जानकारी इस स्थान पर दी जा सकती है।</p>
-<div class="profile-points"><div><b>🙏</b><span>धार्मिक मार्गदर्शन</span></div><div><b>🤝</b><span>समाज सेवा</span></div><div><b>🌺</b><span>संस्कृति संरक्षण</span></div></div>
-<a class="btn" href="index.html#contact">धर्मसमाज से संपर्क</a></div></section>
-<footer>ॐ आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</footer></body></html>
+<!doctype html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>संरक्षक | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.shrine-hero{
+    text-align:center;
+    padding:45px 15px 25px;
+    background:linear-gradient(135deg,#fff8e5,#f4e3b7);
+}
+
+.shrine-hero h1{
+    color:#70430d;
+    margin:8px 0;
+    font-size:34px;
+}
+
+.shrine-hero p{
+    color:#775523;
+    font-size:17px;
+}
+
+.om-big{
+    font-size:55px;
+    color:#a56a12;
+}
+
+.samrakshak-grid{
+    max-width:1200px;
+    margin:30px auto 60px;
+    padding:0 18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.samrakshak-card{
+    background:#fff;
+    border-radius:22px;
+    padding:18px;
+    text-align:center;
+    border:1px solid #d7b66c;
+    box-shadow:0 10px 28px rgba(70,45,10,.16);
+    position:relative;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.samrakshak-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 16px 35px rgba(70,45,10,.24);
+}
+
+.samrakshak-card:before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border:1px solid #e3c983;
+    border-radius:17px;
+    pointer-events:none;
+}
+
+/* Photo */
+
+.photo-frame{
+    width:190px;
+    height:220px;
+    margin:8px auto 18px;
+    padding:9px;
+    background:linear-gradient(
+        135deg,
+        #765015,
+        #e6c45f,
+        #fff0a5,
+        #b17b20,
+        #f0d779,
+        #765015
+    );
+    border-radius:18px;
+    box-shadow:
+        0 8px 18px rgba(70,45,10,.30),
+        inset 0 0 0 2px #fff4bd;
+    position:relative;
+}
+
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:11px;
+    border:4px solid #fff7d5;
+    display:block;
+    box-sizing:border-box;
+    background:#eee;
+}
+
+.corner{
+    position:absolute;
+    color:#fff1a6;
+    font-size:19px;
+    z-index:2;
+}
+
+.tl{top:7px;left:10px}
+.tr{top:7px;right:10px}
+.bl{bottom:7px;left:10px}
+.br{bottom:7px;right:10px}
+
+.tilak{
+    color:#a45c0b;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.role{
+    display:inline-block;
+    margin:7px 0;
+    padding:6px 18px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#8b5814,#c4932d);
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.samrakshak-card h2{
+    color:#673b0b;
+    font-size:23px;
+    margin:8px 0;
+}
+
+.divider{
+    color:#b17b19;
+    margin:5px;
+}
+
+.details{
+    text-align:left;
+    margin-top:12px;
+}
+
+.detail{
+    background:#fff9ec;
+    border:1px solid #ead39a;
+    border-radius:10px;
+    padding:9px 11px;
+    margin:7px 0;
+}
+
+.detail strong{
+    color:#805116;
+    display:block;
+    font-size:13px;
+    margin-bottom:2px;
+}
+
+.detail span{
+    color:#44311a;
+    font-size:14px;
+    line-height:1.45;
+}
+
+.intro{
+    color:#60471f;
+    font-size:14px;
+    line-height:1.6;
+    margin-top:12px;
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+    .samrakshak-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .samrakshak-grid{
+        grid-template-columns:1fr;
+        padding:0 12px;
+    }
+
+    .shrine-hero h1{
+        font-size:27px;
+    }
+
+    .photo-frame{
+        width:210px;
+        height:245px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+ <!-- ब्रांड एरिया (लोगो और टेक्स्ट) -->
+  <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+    <div class="logo-area"> 
+      <img src="logo.png" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज लोगो" class="logo-header-img">
+    </div>
+    <!-- ये क्लास दोनों को ऊपर-नीचे रखेगी -->
+    <div class="brand-text">
+      <b>आकार श्री पशुपतिनाथ</b>
+      <small>नेपाली धर्मसमाज</small>
+    </div>
+  </a>
+
+<nav>
+    <a href="index.html#home">मुख्य पृष्ठ</a>
+    <a href="index.html#notice">सूचना</a>
+    <a href="index.html#daily">दैनिक कार्यक्रम</a>
+    <a href="index.html#samrakshak">संरक्षक</a>
+    <a href="itihas.html">मंदिर का इतिहास</a>
+</nav>
+</header>
+
+<section class="shrine-hero">
+
+<div class="om-big">ॐ</div>
+
+<h1>धर्मसमाज के संरक्षक</h1>
+
+<p>
+    ॥ श्री पशुपतिनाथ की कृपा ॥
+</p>
+
+<p>
+    धर्म, सेवा, संस्कृति और समाज के प्रति समर्पित
+    हमारे सम्मानित संरक्षक
+</p>
+
+</section>
+
+<main class="samrakshak-grid">
+
+<!-- 01 -->
+
+<article class="samrakshak-card">
+
+<div class="photo-frame">
+<span class="corner tl">❖</span>
+<span class="corner tr">❖</span>
+<span class="corner bl">❖</span>
+<span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-01.jpg" alt="मुख्य संरक्षक">
+</div>
+
+<div class="tilak">॥ श्री पशुपतिनाथ की कृपा ॥</div>
+
+<div class="role">मुख्य संरक्षक</div>
+
+<h2>श्री दिल बहादुर क्षत्रिय</h2>
+
+<div class="divider">❖</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>💼 कार्य / व्यवसाय</strong>
+<span>सामाजिक सेवा</span>
+</div>
+
+<div class="detail">
+<strong>📍 पता</strong>
+<span>14/71 सिविल लाइन कानपुर</span>
+</div>
+
+</div>
+
+<p class="intro">
+धर्मसमाज के धार्मिक एवं सामाजिक कार्यों में मार्गदर्शन और संरक्षण प्रदान करना।
+</p>
+
+</article>
+
+<!-- 02 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-02.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ सेवा ही धर्म है ॥</div>
+<div class="role">संरक्षक</div>
+<h2>श्री एस.बी. थापा</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>नौकरी एवं समाज सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>स्वरूप नगर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">धार्मिक आयोजनों और समाज सेवा के कार्यों में सहयोग।</p>
+</article>
+
+<!-- 03 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-03.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ धर्म एवं संस्कृति ॥</div>
+<div class="role">संरक्षक</div>
+<h2>श्री डी.बी. थापाी</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>सामाजिक कार्य</span></div>
+<div class="detail"><strong>📍 पता</strong><span>कल्याणपुर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">नेपाली संस्कृति और धार्मिक परंपराओं के संरक्षण में योगदान।</p>
+</article>
+
+<!-- 04 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-04.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ समाज सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>---------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>शिक्षा एवं सामाजिक सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>नवीन मार्केट, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">युवा पीढ़ी को धर्म और संस्कारों से जोड़ने में सहयोग।</p>
+</article>
+
+<!-- 05 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-05.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ सेवा परमो धर्मः ॥</div>
+<div class="role">संरक्षक</div>
+<h2>-----------------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यापार एवं समाज सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>गोविंद नगर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">भंडारा, धार्मिक कार्यक्रमों और सेवा गतिविधियों में सहयोग।</p>
+</article>
+
+<!-- 06 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-06.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ संस्कार एवं संस्कृति ॥</div>
+<div class="role">संरक्षक</div>
+<h2>---------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>उद्योग एवं व्यवसाय</span></div>
+<div class="detail"><strong>📍 पता</strong><span>आर्य नगर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">धर्मसमाज की विकास गतिविधियों में निरंतर सहयोग।</p>
+</article>
+
+<!-- 07 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-07.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ श्री पशुपतिनाथ ॥</div>
+<div class="role">संरक्षक</div>
+<h2>-------------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यापार</span></div>
+<div class="detail"><strong>📍 पता</strong><span>काकादेव, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">मंदिर एवं धार्मिक कार्यक्रमों के संचालन में सहयोग।</p>
+</article>
+
+<!-- 08 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-08.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ धर्म और सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>---------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यवसाय एवं समाज सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>दादानगर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">समाज के जरूरतमंद परिवारों के लिए सेवा कार्यों में सहयोग।</p>
+</article>
+
+<!-- 09 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-09.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ संस्कृति संरक्षण ॥</div>
+<div class="role">संरक्षक</div>
+<h2>-----------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>शिक्षा एवं सामाजिक सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>विष्णुपुरी, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">सांस्कृतिक कार्यक्रमों और धार्मिक आयोजनों में सक्रिय सहयोग।</p>
+</article>
+
+<!-- 10 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-10.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ एकता एवं सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>----------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यवसाय</span></div>
+<div class="detail"><strong>📍 पता</strong><span>बर्रा, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">धर्मसमाज की एकता और सामाजिक गतिविधियों में योगदान।</p>
+</article>
+
+<!-- 11 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-11.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ भक्ति एवं सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>-----------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यापार एवं सामाजिक कार्य</span></div>
+<div class="detail"><strong>📍 पता</strong><span>रावतपुर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">धार्मिक सेवा और मंदिर की व्यवस्थाओं में सहयोग।</p>
+</article>
+
+<!-- 12 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-12.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ शुभ सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>----------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>उद्योग एवं व्यवसाय</span></div>
+<div class="detail"><strong>📍 पता</strong><span>शास्त्री नगर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">मंदिर विकास एवं निर्माण संबंधी कार्यों में सहयोग।</p>
+</article>
+
+<!-- 13 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-13.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ नेपाली संस्कृति ॥</div>
+<div class="role">संरक्षक</div>
+<h2>--------------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यवसाय एवं समाज सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>पनकी, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">नेपाली परंपराओं और सांस्कृतिक कार्यक्रमों को बढ़ावा देना।</p>
+</article>
+
+<!-- 14 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-14.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ मानव सेवा ॥</div>
+<div class="role">संरक्षक</div>
+<h2>------------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>समाज सेवा एवं व्यवसाय</span></div>
+<div class="detail"><strong>📍 पता</strong><span>आवास विकास, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">सामाजिक सेवा और धार्मिक आयोजनों में सक्रिय योगदान।</p>
+</article>
+
+<!-- 15 -->
+
+<article class="samrakshak-card">
+<div class="photo-frame">
+<span class="corner tl">❖</span><span class="corner tr">❖</span>
+<span class="corner bl">❖</span><span class="corner br">❖</span>
+<img src="images/samrakshak/samrakshak-15.jpg" alt="संरक्षक">
+</div>
+<div class="tilak">॥ जय श्री पशुपतिनाथ ॥</div>
+<div class="role">संरक्षक</div>
+<h2>--------------------</h2>
+<div class="divider">❖</div>
+<div class="details">
+<div class="detail"><strong>💼 कार्य / व्यवसाय</strong><span>व्यवसाय एवं सामाजिक सेवा</span></div>
+<div class="detail"><strong>📍 पता</strong><span>कल्याणपुर, कानपुर, उत्तर प्रदेश</span></div>
+</div>
+<p class="intro">धर्मसमाज की सेवा, धार्मिक आयोजनों और सामुदायिक कार्यों में सहयोग।</p>
+</article>
+
+</main>
+
+<footer>
+ॐ आकार श्री पशुपतिनाथ नेपाली धर्मसमाज
+</footer>
+
+</body>
+</html>

@@ -1,3 +1,1246 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>पुराना मंदिर | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
-<link rel="stylesheet" href="style.css"></head><body><header><div class="brand"><div class="logo-area"> <img src="logo.png" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज लोगो" class="logo-header-img" ></div><div><b>आकार श्री पशुपतिनाथ</b><small>नेपाली धर्मसमाज</small></div></div><button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button><nav><a href="index.html">मुख्य पृष्ठ</a><a href="itihas.html">मंदिर का इतिहास</a><a href="samrakshak.html">मुख्य संरक्षक</a></nav></header><section class="history-hero"><div class="history-inner"><div class="tilak">॥ हमारी विरासत ॥</div><h1>पुराना मंदिर</h1><p>मंदिर के पुराने स्वरूप और शुरुआती दिनों की तस्वीरें।</p><a class="btn" href="itihas.html">← इतिहास पर वापस</a></div></section><section class="section"><div class="heading center"><span>🛕 स्मृति संग्रह</span><h2>पुराना मंदिर</h2><p>वर्ष: <strong>वर्ष यहाँ लिखें</strong></p></div><div class="single-memory"><div class="large-memory-photo"><span>🛕</span><b>यहाँ संबंधित फोटो लगाएँ</b><small>पुरानी / वर्तमान तस्वीर</small></div><div class="memory-detail"><div class="history-year">वर्ष यहाँ लिखें</div><h3>पुराना मंदिर</h3><p>इस पृष्ठ पर पुराना मंदिर से जुड़ी तस्वीरें, जानकारी और यादें समयक्रम में जोड़ी जा सकती हैं। यहाँ मंदिर के इतिहास से संबंधित सही विवरण लिखें।</p><div class="photo-note">📷 <b>फोटो संग्रह:</b> संबंधित तस्वीर के साथ वर्ष और छोटा विवरण जरूर जोड़ें।</div></div></div></section><section class="section cream"><div class="heading center"><span>📷 फोटो गैलरी</span><h2>और पुरानी यादें</h2><p>अलग-अलग वर्षों की तस्वीरें यहाँ क्रम से जोड़ी जा सकती हैं।</p></div><div class="memory-grid"><div><span>🛕</span><b>फोटो 01</b><small>वर्ष यहाँ लिखें</small></div><div><span>📷</span><b>फोटो 02</b><small>वर्ष यहाँ लिखें</small></div><div><span>📷</span><b>फोटो 03</b><small>वर्ष यहाँ लिखें</small></div></div></section><footer>ॐ आकार श्री पशुपतिनाथ नेपाली धर्मसमाज <span>© <b id="yr"></b> सर्वाधिकार सुरक्षित</span></footer><script>document.getElementById('yr').textContent=new Date().getFullYear()</script></body></html>
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>पुराना मंदिर | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:#fffaf0;
+    color:#4b2d12;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:linear-gradient(135deg,#5b2100,#9b4b08,#6d2900);
+    color:#fff;
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 5%;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.om{
+    font-size:42px;
+    color:#ffd86b;
+    line-height:1;
+    text-shadow:0 0 10px rgba(255,215,100,.5);
+}
+
+.brand b{
+    display:block;
+    font-size:21px;
+    color:#ffe8a3;
+}
+
+.brand small{
+    display:block;
+    margin-top:2px;
+    font-size:13px;
+    color:#fff4d0;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:9px 13px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav a:hover{
+    background:rgba(255,215,100,.2);
+    color:#ffd86b;
+}
+
+.hamb{
+    display:none;
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.history-hero{
+    background:
+        radial-gradient(circle at top,#fff0bd,#f4d27c 35%,#a9580b 100%);
+    padding:55px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.history-inner{
+    max-width:950px;
+    margin:auto;
+}
+
+.tilak{
+    color:#8a3e00;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.history-hero h1{
+    margin:5px 0 12px;
+    font-size:42px;
+    color:#632700;
+    text-shadow:1px 2px 0 #ffe5a0;
+}
+
+.history-hero p{
+    margin:0 auto 22px;
+    max-width:700px;
+    font-size:17px;
+    line-height:1.8;
+    color:#5d3518;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:linear-gradient(135deg,#6d2600,#b86608);
+    color:white;
+    padding:11px 22px;
+    border-radius:25px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:40px auto 70px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    color:#713000;
+    font-size:30px;
+    margin:0 0 8px;
+}
+
+.section-title p{
+    margin:0;
+    color:#795a3b;
+}
+
+/* ================= PHOTO GRID ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.photo-card{
+    background:#fff;
+    border-radius:18px;
+    padding:12px;
+    box-shadow:
+        0 7px 20px rgba(92,45,0,.18),
+        0 1px 4px rgba(0,0,0,.15);
+    border:1px solid #d9a84e;
+    transition:.25s ease;
+}
+
+.photo-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 28px rgba(92,45,0,.25);
+}
+
+/* MAIN PHOTO FRAME */
+
+.photo-frame{
+    position:relative;
+    width:100%;
+    height:280px;
+    padding:8px;
+    border-radius:13px;
+
+    background:
+        linear-gradient(135deg,#8c5207,#ffd96b,#9b5a08,#ffe39a,#8b4d05);
+
+    box-shadow:
+        inset 0 0 0 2px #fff0a9,
+        inset 0 0 0 5px #9a5806,
+        0 4px 10px rgba(0,0,0,.22);
+
+    cursor:pointer;
+    overflow:hidden;
+}
+
+/* यह सबसे जरूरी हिस्सा है */
+.photo-frame img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+
+    object-fit:contain !important;
+
+    background:#f5ead3;
+
+    opacity:1 !important;
+    visibility:visible !important;
+
+    border:3px solid #fff4c9;
+    border-radius:7px;
+
+    cursor:pointer;
+
+    transition:transform .3s ease;
+}
+
+.photo-frame:hover img{
+    transform:scale(1.03);
+}
+
+/* छोटा zoom icon */
+
+.zoom-icon{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:rgba(80,35,0,.85);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    pointer-events:none;
+    border:2px solid #ffe49a;
+}
+
+/* ================= CARD TEXT ================= */
+
+.photo-info{
+    text-align:center;
+    padding:14px 6px 7px;
+}
+
+.photo-year{
+    display:inline-block;
+    background:#8a3f04;
+    color:#ffe9a8;
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.photo-info h3{
+    margin:2px 0 8px;
+    color:#713000;
+    font-size:19px;
+}
+
+.photo-info p{
+    margin:0;
+    color:#6d5740;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+
+    background:rgba(20,10,2,.94);
+
+    align-items:center;
+    justify-content:center;
+    padding:60px 65px;
+}
+
+.lightbox.show{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:92vw;
+    max-height:84vh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border:5px solid #f3c95c;
+    border-radius:8px;
+
+    box-shadow:0 0 35px rgba(255,210,90,.35);
+
+    background:#fff;
+}
+
+.close{
+    position:absolute;
+    right:22px;
+    top:15px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+    border:2px solid #f3c95c;
+
+    background:#5a2300;
+    color:white;
+
+    font-size:34px;
+    line-height:40px;
+
+    cursor:pointer;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:50px;
+    height:65px;
+
+    border:1px solid #f3c95c;
+    border-radius:12px;
+
+    background:rgba(80,35,0,.85);
+    color:#fff;
+
+    font-size:35px;
+    cursor:pointer;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+.counter{
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    background:rgba(70,30,0,.9);
+    color:#ffe49a;
+
+    padding:6px 15px;
+    border-radius:20px;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#542000;
+    color:#fbe5ae;
+    text-align:center;
+    padding:25px 15px;
+    line-height:1.7;
+}
+
+footer b{
+    color:#ffd56b;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav{
+        gap:3px;
+    }
+
+    nav a{
+        padding:8px 9px;
+        font-size:13px;
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        min-height:70px;
+        padding:9px 15px;
+    }
+
+    .om{
+        font-size:35px;
+    }
+
+    .brand b{
+        font-size:17px;
+    }
+
+    .brand small{
+        font-size:11px;
+    }
+
+    .hamb{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+        left:0;
+        right:0;
+        top:70px;
+
+        background:#652600;
+
+        flex-direction:column;
+        padding:10px 15px 15px;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    nav a{
+        text-align:center;
+        padding:11px;
+    }
+
+    .history-hero{
+        padding:38px 15px;
+    }
+
+    .history-hero h1{
+        font-size:31px;
+    }
+
+    .history-hero p{
+        font-size:15px;
+    }
+
+    .container{
+        width:94%;
+        margin-top:30px;
+    }
+
+    .section-title h2{
+        font-size:25px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .photo-frame{
+        height:270px;
+    }
+
+    .lightbox{
+        padding:60px 12px;
+    }
+
+    .lightbox img{
+        max-width:96vw;
+        max-height:78vh;
+    }
+
+    .prev,
+    .next{
+        width:42px;
+        height:52px;
+        font-size:28px;
+    }
+
+    .prev{
+        left:7px;
+    }
+
+    .next{
+        right:7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="brand">
+        <div class="om">ॐ</div>
+
+        <div>
+            <b>आकार श्री पशुपतिनाथ</b>
+            <small>नेपाली धर्मसमाज</small>
+        </div>
+    </div>
+
+    <button class="hamb"
+            onclick="document.querySelector('nav').classList.toggle('open')">
+        ☰
+    </button>
+
+    <nav>
+        <a href="index.html">मुख्य पृष्ठ</a>
+        <a href="itihas.html">मंदिर का इतिहास</a>
+        <a href="samrakshak.html">मुख्य संरक्षक</a>
+        <a href="sadasya.html">सदस्य</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="history-hero">
+
+    <div class="history-inner">
+
+        <div class="tilak">॥ हमारी विरासत ॥</div>
+
+        <h1>🛕 पुराना मंदिर</h1>
+
+        <p>
+            मंदिर के पुराने स्वरूप, निर्माण और शुरुआती दिनों की
+            अमूल्य स्मृतियाँ।
+        </p>
+
+        <a class="btn" href="itihas.html">
+            ← इतिहास पर वापस
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<main class="container">
+
+    <div class="section-title">
+
+        <h2>📜 मंदिर की पुरानी स्मृतियाँ</h2>
+
+        <p>
+            इन तस्वीरों के माध्यम से हमारे मंदिर और धर्मसमाज की
+            पुरानी यादों को संजोकर रखा गया है।
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+
+        <!-- 01 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(0)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-01.jpg"
+                    alt="पुराना मंदिर 1975"
+                    loading="lazy"
+                    onerror="this.style.background='#ead7b0';">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>मंदिर का प्रारंभिक स्वरूप</h3>
+
+                <p>
+                    धर्मसमाज के प्रारंभिक समय में मंदिर का
+                    सरल और शांत स्वरूप।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(1)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-02.jpg"
+                    alt="पुराना मंदिर 1978"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>पुराने मंदिर का प्रांगण</h3>
+
+                <p>
+                    मंदिर के आसपास का पुराना प्रांगण और
+                    उस समय की ऐतिहासिक झलक।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(2)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-03.jpg"
+                    alt="धार्मिक आयोजन 1980"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>धार्मिक आयोजन</h3>
+
+                <p>
+                    मंदिर में आयोजित पुराने धार्मिक कार्यक्रम
+                    की स्मरणीय तस्वीर।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(3)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-04.jpg"
+                    alt="पुराना मंदिर परिसर 1983"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>पुराना मंदिर परिसर</h3>
+
+                <p>
+                    पुराने समय में मंदिर परिसर की सुंदर और
+                    शांत झलक।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(4)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-05.jpg"
+                    alt="भक्तों की स्मृति 1986"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>भक्तों की स्मृति</h3>
+
+                <p>
+                    मंदिर में पूजा-अर्चना के लिए एकत्रित
+                    भक्तों की पुरानी स्मृति।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(5)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-06.jpg"
+                    alt="मंदिर की पुरानी झलक 1989"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>मंदिर की पुरानी झलक</h3>
+
+                <p>
+                    समय के साथ मंदिर के स्वरूप में आए
+                    परिवर्तन की एक यादगार तस्वीर।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 07 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(6)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-07.jpg"
+                    alt="समाज का धार्मिक उत्सव 1992"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>समाज का धार्मिक उत्सव</h3>
+
+                <p>
+                    धर्मसमाज के पुराने धार्मिक उत्सव की
+                    पावन स्मृति।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 08 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(7)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-08.jpg"
+                    alt="भंडारा एवं प्रसाद 1995"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>भंडारा एवं प्रसाद</h3>
+
+                <p>
+                    पुराने समय में आयोजित भंडारे और
+                    प्रसाद वितरण की स्मृति।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 09 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(8)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-09.jpg"
+                    alt="मंदिर में विशेष पूजा 1998"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>मंदिर में विशेष पूजा</h3>
+
+                <p>
+                    विशेष धार्मिक अवसर पर मंदिर में आयोजित
+                    पूजा-अर्चना।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 10 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(9)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-10.jpg"
+                    alt="पुराना मंदिर एवं भक्त 2000"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>पुराना मंदिर एवं भक्त</h3>
+
+                <p>
+                    मंदिर और धर्मसमाज से जुड़े लोगों की
+                    ऐतिहासिक स्मृति।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 11 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(10)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-11.jpg"
+                    alt="निर्माण कार्य की स्मृति 2003"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>निर्माण कार्य की स्मृति</h3>
+
+                <p>
+                    मंदिर के विकास एवं निर्माण कार्य से
+                    जुड़ी पुरानी तस्वीर।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 12 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(11)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-12.jpg"
+                    alt="मंदिर का बदलता स्वरूप 2006"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>मंदिर का बदलता स्वरूप</h3>
+
+                <p>
+                    समय के साथ मंदिर के विकास की
+                    एक महत्वपूर्ण झलक।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 13 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(12)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-13.jpg"
+                    alt="धर्मसमाज का उत्सव 2010"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>धर्मसमाज का उत्सव</h3>
+
+                <p>
+                    धर्मसमाज के सामूहिक धार्मिक आयोजन की
+                    यादगार तस्वीर।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 14 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(13)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-14.jpg"
+                    alt="मंदिर की स्मरणीय झलक 2015"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>मंदिर की स्मरणीय झलक</h3>
+
+                <p>
+                    पुराने मंदिर की एक और महत्वपूर्ण
+                    ऐतिहासिक तस्वीर।
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- 15 -->
+
+        <article class="photo-card">
+
+            <div class="photo-frame"
+                 onclick="openLightbox(14)">
+
+                <img
+                    src="images/purana-mandir/purana-mandir-15.jpg"
+                    alt="हमारी अमूल्य विरासत 2020"
+                    loading="lazy">
+
+                <div class="zoom-icon">🔍</div>
+
+            </div>
+
+            <div class="photo-info">
+
+                <span class="photo-year">19__</span>
+
+                <h3>हमारी अमूल्य विरासत</h3>
+
+                <p>
+                    पुराने मंदिर और धर्मसमाज की यात्रा को
+                    संजोए रखने वाली एक अमूल्य स्मृति।
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</main>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox"
+     id="lightbox"
+     onclick="backgroundClose(event)">
+
+    <button class="close"
+            onclick="closeLightbox()">
+        ×
+    </button>
+
+    <button class="prev"
+            onclick="changePhoto(-1); event.stopPropagation();">
+        ‹
+    </button>
+
+    <img id="lightboxImage"
+         src=""
+         alt="बड़ी फोटो">
+
+    <button class="next"
+            onclick="changePhoto(1); event.stopPropagation();">
+        ›
+    </button>
+
+    <div class="counter"
+         id="counter">
+        1 / 15
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <b>ॐ नमः शिवाय</b><br>
+
+    आकार श्री पशुपतिनाथ नेपाली धर्मसमाज<br>
+
+    हमारी संस्कृति • हमारी आस्था • हमारी विरासत
+
+</footer>
+
+
+<script>
+
+/* ================= PHOTO LIST ================= */
+
+const photos = [
+    "images/purana-mandir/purana-mandir-01.jpg",
+    "images/purana-mandir/purana-mandir-02.jpg",
+    "images/purana-mandir/purana-mandir-03.jpg",
+    "images/purana-mandir/purana-mandir-04.jpg",
+    "images/purana-mandir/purana-mandir-05.jpg",
+    "images/purana-mandir/purana-mandir-06.jpg",
+    "images/purana-mandir/purana-mandir-07.jpg",
+    "images/purana-mandir/purana-mandir-08.jpg",
+    "images/purana-mandir/purana-mandir-09.jpg",
+    "images/purana-mandir/purana-mandir-10.jpg",
+    "images/purana-mandir/purana-mandir-11.jpg",
+    "images/purana-mandir/purana-mandir-12.jpg",
+    "images/purana-mandir/purana-mandir-13.jpg",
+    "images/purana-mandir/purana-mandir-14.jpg",
+    "images/purana-mandir/purana-mandir-15.jpg"
+];
+
+let currentPhoto = 0;
+
+
+/* ================= OPEN ================= */
+
+function openLightbox(index){
+
+    currentPhoto = index;
+
+    document.getElementById("lightboxImage").src =
+        photos[currentPhoto];
+
+    document.getElementById("counter").textContent =
+        (currentPhoto + 1) + " / " + photos.length;
+
+    document.getElementById("lightbox").classList.add("show");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* ================= CLOSE ================= */
+
+function closeLightbox(){
+
+    document.getElementById("lightbox").classList.remove("show");
+
+    document.getElementById("lightboxImage").src = "";
+
+    document.body.style.overflow = "";
+}
+
+
+/* ================= NEXT / PREVIOUS ================= */
+
+function changePhoto(direction){
+
+    currentPhoto += direction;
+
+    if(currentPhoto < 0){
+        currentPhoto = photos.length - 1;
+    }
+
+    if(currentPhoto >= photos.length){
+        currentPhoto = 0;
+    }
+
+    document.getElementById("lightboxImage").src =
+        photos[currentPhoto];
+
+    document.getElementById("counter").textContent =
+        (currentPhoto + 1) + " / " + photos.length;
+}
+
+
+/* ================= BACKGROUND CLOSE ================= */
+
+function backgroundClose(event){
+
+    if(event.target.id === "lightbox"){
+        closeLightbox();
+    }
+}
+
+
+/* ================= KEYBOARD ================= */
+
+document.addEventListener("keydown", function(event){
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    if(!lightbox.classList.contains("show")){
+        return;
+    }
+
+    if(event.key === "Escape"){
+        closeLightbox();
+    }
+
+    if(event.key === "ArrowLeft"){
+        changePhoto(-1);
+    }
+
+    if(event.key === "ArrowRight"){
+        changePhoto(1);
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
