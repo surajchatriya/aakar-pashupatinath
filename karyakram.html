@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>कार्यक्रम एवं आयोजन | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+      background: #fff8ed;
+      color: #4b2410;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #7b1e00, #b94700, #8d2500);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .om {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 3px 0 0;
+      font-size: 19px;
+    }
+
+    nav {
+      background: #5b1600;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 8px;
+      gap: 6px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #d97820;
+    }
+
+    .container {
+      width: 94%;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      color: #8b2500;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .intro p {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #8b2500;
+      margin: 35px 0 20px;
+      font-size: 25px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.13);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.20);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin: 0 0 5px;
+      color: #8b2500;
+      font-size: 20px;
+    }
+
+    .year {
+      display: inline-block;
+      background: #f2c14e;
+      color: #5a2500;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .card-content p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .empty {
+      background: #fff;
+      border: 2px dashed #d69a4a;
+      padding: 30px;
+      text-align: center;
+      border-radius: 14px;
+      color: #7a4b24;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #5b1600;
+      color: white;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 14px;
+    }
+
+    /* Image popup */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      .om {
+        font-size: 40px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 6px 8px;
+      }
+
+      .container {
+        width: 96%;
+      }
+
+      .intro {
+        padding: 18px;
+      }
+
+      .intro h2 {
+        font-size: 23px;
+      }
+
+      .card img {
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="om">ॐ</div>
+  <h1>आकार श्री पशुपतिनाथ</h1>
+  <p>नेपाली धर्मसमाज</p>
+</header>
+
+<nav>
+  <a href="index.html">मुख्य पृष्ठ</a>
+  <a href="itihas.html">मंदिर का इतिहास</a>
+  <a href="samrakshak.html">संरक्षक</a>
+  <a href="sadasya.html">सदस्य</a>
+  <a href="daan.html">दान / सहयोग</a>
+  <a href="vishisht-atithi.html">विशिष्ट अतिथि</a>
+  <a href="karyakram.html">कार्यक्रम</a>
+</nav>
+
+<div class="container">
+
+  <section class="intro">
+
+    <h2>📸 नेपाली धर्मसमाज के प्रमुख कार्यक्रम एवं आयोजन</h2>
+
+    <p>
+      आकार श्री पशुपतिनाथ नेपाली धर्मसमाज द्वारा समय-समय पर
+      विभिन्न धार्मिक, सामाजिक एवं सांस्कृतिक कार्यक्रमों का आयोजन
+      किया जाता रहा है।
+    </p>
+
+    <p>
+      इन आयोजनों के माध्यम से समाज ने अपनी धार्मिक परंपराओं,
+      नेपाली संस्कृति एवं सामाजिक एकता को निरंतर सहेजने और
+      आगे बढ़ाने का कार्य किया है।
+    </p>
+
+    <p>
+      नीचे धर्मसमाज द्वारा आयोजित विभिन्न कार्यक्रमों एवं
+      विशेष अवसरों की ऐतिहासिक एवं स्मरणीय तस्वीरें प्रस्तुत हैं।
+    </p>
+
+  </section>
+
+ <!-- पूजा और आरती -->
+
+ <h2 class="section-title">🙏 हमारी ऐतिहासिक स्मृतियाँ</h2>
+
+<div class="gallery">
+
+  <!-- 1. विशेष पूजा 2025 (आपका ओरिजिनल कार्ड) -->
+  <div class="card">
+    <img src="images/karyakram/a0/01.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/02.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/03.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/04.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/05.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/06.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/07.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/08.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/09.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/10.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/11.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/12.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/13.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images/karyakram/a0/14.jpg" alt="विशेष पूजा" onclick="openImage(this.src)">
+    <div class="card-content">
+      <h3>हमारी ऐतिहासिक स्मृतियाँ</h3>
+      <p><strong>“इतिहास केवल पढ़ा नहीं जाता, उसे संजोकर अगली पीढ़ी तक पहुँचाया जाता है।”</strong></p>
+    </div>
+  </div>
+
+</div>
+
+  <!-- महाशिवरात्रि -->
+
+  <h2 class="section-title">🛕 महाशिवरात्रि समारोह</h2>
+
+  <div class="gallery">
+    <div class="card">
+      <img src="images/karyakram/mahashivratri-1.jpg"
+           alt="महाशिवरात्रि समारोह"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>महाशिवरात्रि समारोह</h3>
+        <p>
+          भगवान श्री पशुपतिनाथ की विशेष पूजा एवं
+          महाशिवरात्रि के पावन अवसर की स्मृतियाँ।
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/karyakram/mahashivratri-2.jpg"
+           alt="महाशिवरात्रि पूजा"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2024</span>
+        <h3>महाशिवरात्रि पूजा</h3>
+        <p>विशेष पूजा एवं धार्मिक आयोजन।</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- पूजा और आरती -->
+
+  <h2 class="section-title">🪔 विशेष पूजा एवं आरती</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/puja-1.jpg"
+           alt="विशेष पूजा"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>विशेष पूजा</h3>
+        <p>धर्मसमाज द्वारा आयोजित विशेष धार्मिक पूजा।</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/karyakram/aarti-1.jpg"
+           alt="आरती"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>विशेष आरती</h3>
+        <p>भगवान श्री पशुपतिनाथ की आरती एवं पूजा।</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- भंडारा -->
+
+  <h2 class="section-title">🍚 भंडारा एवं प्रसाद वितरण</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/bhandara-1.jpg"
+           alt="भंडारा"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>भंडारा</h3>
+        <p>
+          धर्मसमाज द्वारा आयोजित भंडारा एवं
+          प्रसाद वितरण कार्यक्रम।
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/karyakram/bhandara-2.jpg"
+           alt="प्रसाद वितरण"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2024</span>
+        <h3>प्रसाद वितरण</h3>
+        <p>भक्तों एवं समाज के सदस्यों के लिए प्रसाद वितरण।</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- सांस्कृतिक कार्यक्रम -->
+
+  <h2 class="section-title">🎉 धार्मिक एवं सांस्कृतिक कार्यक्रम</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/sanskritik-1.jpg"
+           alt="सांस्कृतिक कार्यक्रम"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>सांस्कृतिक कार्यक्रम</h3>
+        <p>
+          नेपाली संस्कृति एवं परंपराओं से जुड़े
+          सांस्कृतिक कार्यक्रम।
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/karyakram/sanskritik-2.jpg"
+           alt="धार्मिक कार्यक्रम"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2024</span>
+        <h3>धार्मिक कार्यक्रम</h3>
+        <p>समाज द्वारा आयोजित धार्मिक एवं सांस्कृतिक आयोजन।</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- नेपाली पर्व -->
+
+  <h2 class="section-title">🇳🇵 नेपाली पर्व एवं उत्सव</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/nepali-parv-1.jpg"
+           alt="नेपाली पर्व"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>नेपाली पर्व एवं उत्सव</h3>
+        <p>
+          नेपाली समाज के पारंपरिक पर्व एवं
+          धार्मिक उत्सव।
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- समाज के विशेष आयोजन -->
+
+  <h2 class="section-title">🤝 समाज के विशेष आयोजन</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/samaj-1.jpg"
+           alt="समाज का विशेष आयोजन"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">वर्ष 2025</span>
+        <h3>समाज का विशेष आयोजन</h3>
+        <p>
+          नेपाली धर्मसमाज के सदस्यों द्वारा आयोजित
+          विशेष कार्यक्रम।
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- विशिष्ट अतिथि -->
+
+  <h2 class="section-title">👑 विशिष्ट अतिथियों का स्वागत</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/atithi-1.jpg"
+           alt="विशिष्ट अतिथि"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">ऐतिहासिक अवसर</span>
+        <h3>विशिष्ट अतिथियों का आगमन</h3>
+        <p>
+          नेपाल एवं अन्य विशिष्ट अतिथियों के
+          धर्मसमाज आगमन की स्मृतियाँ।
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ऐतिहासिक अवसर -->
+
+  <h2 class="section-title">📜 ऐतिहासिक एवं स्मरणीय अवसर</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="images/karyakram/aitihasik-1.jpg"
+           alt="ऐतिहासिक अवसर"
+           onclick="openImage(this.src)">
+      <div class="card-content">
+        <span class="year">ऐतिहासिक स्मृति</span>
+        <h3>ऐतिहासिक अवसर</h3>
+        <p>
+          नेपाली धर्मसमाज के इतिहास से जुड़ी
+          महत्वपूर्ण एवं स्मरणीय तस्वीरें।
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</div>
+
+
+<footer>
+  <div>ॐ नमः शिवाय 🙏</div>
+  <div>
+    © आकार श्री पशुपतिनाथ नेपाली धर्मसमाज
+  </div>
+</footer>
+
+
+<!-- Image Popup -->
+
+<div class="modal" id="imageModal" onclick="closeImage()">
+
+  <span class="close">&times;</span>
+
+  <img id="modalImage" src="" alt="बड़ी तस्वीर">
+
+</div>
+
+
+<script>
+
+  function openImage(src) {
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImage").src = src;
+  }
+
+  function closeImage() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+
+</script>
+
+</body>
+</html>

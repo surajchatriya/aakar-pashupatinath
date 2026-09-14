@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>विशिष्ट अतिथि | आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Devanagari",Arial,sans-serif;
+    background:linear-gradient(135deg,#fff8e7,#f7e3b0,#fff8e7);
+    color:#4b2600;
+}
+
+header{
+    background:linear-gradient(135deg,#7b1e00,#b45f06,#7b1e00);
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    border-bottom:5px solid #f6d365;
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
+
+.om{
+    font-size:48px;
+    color:#ffd76a;
+    font-weight:bold;
+}
+
+header h1{
+    font-size:30px;
+    margin:5px 0;
+}
+
+header p{
+    font-size:18px;
+    color:#ffe9a8;
+}
+
+nav{
+    background:#5b1700;
+    padding:12px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+nav a{
+    display:inline-block;
+    color:#fff4c4;
+    text-decoration:none;
+    margin:4px 8px;
+    padding:9px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+    background:#f1c24b;
+    color:#5b1700;
+}
+
+.container{
+    width:94%;
+    max-width:1200px;
+    margin:35px auto;
+}
+
+.page-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.page-title h2{
+    font-size:32px;
+    color:#8b3e00;
+    margin-bottom:10px;
+}
+
+.page-title p{
+    font-size:17px;
+    line-height:1.8;
+}
+
+.guest-section{
+    background:rgba(255,255,255,.8);
+    border:2px solid #d7a83d;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:40px;
+    box-shadow:0 8px 25px rgba(100,50,0,.15);
+}
+
+.guest-heading{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.guest-heading h3{
+    color:#8b3e00;
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.guest-heading p{
+    color:#76502c;
+    font-size:16px;
+}
+
+.photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.photo-card{
+    background:#fffaf0;
+    padding:10px;
+    border-radius:15px;
+    border:4px solid #c9972b;
+    box-shadow:
+        0 0 0 3px #fff2bd,
+        0 5px 15px rgba(80,40,0,.25);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.photo-card:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:
+        0 0 0 3px #ffe7a0,
+        0 10px 25px rgba(80,40,0,.35);
+}
+
+.photo-card img{
+    display:block;
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:9px;
+    background:#ead9b5;
+}
+
+.photo-caption{
+    text-align:center;
+    padding:10px 5px 4px;
+    color:#6b3500;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    background:#5b1700;
+    color:#ffe8a0;
+    padding:22px 15px;
+    margin-top:40px;
+    line-height:1.8;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+.lightbox.show{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:78vh;
+    object-fit:contain;
+    border:5px solid #e4b84b;
+    border-radius:10px;
+    box-shadow:0 0 30px rgba(255,220,120,.4);
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:25px;
+    color:white;
+    font-size:42px;
+    cursor:pointer;
+    z-index:10001;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(255,193,7,.85);
+    color:#4d2100;
+    border:none;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    font-size:30px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.prev:hover,
+.next:hover{
+    background:#fff0a8;
+}
+
+.counter{
+    color:white;
+    margin-top:12px;
+    font-size:16px;
+}
+
+@media(max-width:900px){
+    .photo-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:23px;
+    }
+
+    .om{
+        font-size:40px;
+    }
+
+    nav a{
+        font-size:14px;
+        padding:7px 10px;
+        margin:3px;
+    }
+
+    .guest-section{
+        padding:15px;
+    }
+
+    .photo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .photo-card img{
+        height:260px;
+    }
+
+    .page-title h2{
+        font-size:26px;
+    }
+
+    .prev{
+        left:8px;
+    }
+
+    .next{
+        right:8px;
+    }
+
+    .prev,
+    .next{
+        width:44px;
+        height:44px;
+        font-size:24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="om">ॐ</div>
+    <h1>आकार श्री पशुपतिनाथ</h1>
+    <p>नेपाली धर्मसमाज</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 मुख्य पृष्ठ</a>
+    <a href="itihas.html">📜 मंदिर का इतिहास</a>
+    <a href="samrakshak.html">🙏 संरक्षक</a>
+    <a href="sadasya.html">👥 सदस्य</a>
+    <a href="vishisht-atithi.html" class="active">🌸 विशिष्ट अतिथि</a>
+</nav>
+
+<main class="container">
+
+    <div class="page-title">
+        <h2>🙏 विशिष्ट अतिथि</h2>
+        <p>
+            आकार श्री पशुपतिनाथ नेपाली धर्मसमाज में पधारे
+            सम्माननीय विशिष्ट अतिथियों की ऐतिहासिक स्मृतियाँ।
+        </p>
+    </div>
+
+
+    <!-- =========================
+         नेपाल के राजा
+    ========================== -->
+
+    <section class="guest-section">
+
+   <section class="guest-section">
+
+    <div class="guest-heading">
+        <h3>👑 स्वर्गीय श्री नेपाल नरेश बीरेन्द्र वीर विक्रम शाह देव</h3>
+
+        <p>
+            <strong>जन्म:</strong> 29 दिसंबर 1945 &nbsp; | &nbsp;
+            <strong>निधन:</strong> 1 जून 2001 (आयु 55 वर्ष)
+        </p>
+
+        <p>
+            अपनी भारत यात्रा के दौरान स्वर्गीय श्री नेपाल नरेश विशेष रूप से
+            कानपुर स्थित नेपाली धर्मसमाज के सदस्यों एवं संस्थापक संरक्षकों
+            से भेंट करने के लिए पधारे थे। यह अवसर कानपुर के नेपाली समाज
+            के लिए अत्यंत गौरवपूर्ण एवं ऐतिहासिक रहा।
+        </p>
+    </div>
+
+    <div class="photo-grid">
+
+            <div class="photo-card" onclick="openGallery(0)">
+                <img src="images/vishisht-atithi/raja/01.jpg" alt="नेपाल के राजा फोटो 1">
+                <div class="photo-caption">राजा – फोटो 1</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(1)">
+                <img src="images/vishisht-atithi/raja/02.jpg" alt="नेपाल के राजा फोटो 2">
+                <div class="photo-caption">राजा – फोटो 2</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(2)">
+                <img src="images/vishisht-atithi/raja/03.jpg" alt="नेपाल के राजा फोटो 3">
+                <div class="photo-caption">राजा – फोटो 3</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(3)">
+                <img src="images/vishisht-atithi/raja/04.jpg" alt="नेपाल के राजा फोटो 4">
+                <div class="photo-caption">राजा – फोटो 4</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(4)">
+                <img src="images/vishisht-atithi/raja/05.jpg" alt="नेपाल के राजा फोटो 5">
+                <div class="photo-caption">राजा – फोटो 5</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         राजदूत 1
+    ========================== -->
+
+    <section class="guest-section">
+
+        <div class="guest-heading">
+            <h3>स्वर्गीय श्री जगदीश शमशेर जे.बी. राणा</h3>
+            <p>नेपाल के राजदूत एवं वरिष्ठ राजनीतिज्ञं, सस्वर्गीय श्री जगदीश शमशेर जे.बी. राणा नेपाल के प्रतिष्ठित राजनीतिज्ञ एवं कूटनीतिज्ञ थे। उन्होंने नेपाल के राजनीतिक एवं सार्वजनिक जीवन में महत्वपूर्ण भूमिका निभाई और विभिन्न महत्वपूर्ण दायित्वों का निर्वहन किया।</p>
+        </div>
+
+        <div class="photo-grid">
+
+            <div class="photo-card" onclick="openGallery(5)">
+                <img src="images/vishisht-atithi/rajdoot-01/01.jpg" alt="राजदूत 1 फोटो 1">
+                <div class="photo-caption">राजदूत 1 – फोटो 1</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(6)">
+                <img src="images/vishisht-atithi/rajdoot-01/02.jpg" alt="राजदूत 1 फोटो 2">
+                <div class="photo-caption">राजदूत 1 – फोटो 2</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         राजदूत 2
+    ========================== -->
+
+    <section class="guest-section">
+
+        <div class="guest-heading">
+            <h3>स्वर्गीय श्रीमती बिंध्याबासिनी शाह</h3>
+            <p>भारत में नेपाल की पूर्व राजदूत स्वर्गीय श्रीमती बिंध्याबासिनी शाह नेपाल की प्रतिष्ठित कूटनीतिज्ञ थीं। उन्होंने सितंबर 1988 से दिसंबर 1990 तक भारत में नेपाल की राजदूत के रूप में कार्य किया।</p>
+        </div>
+
+        <div class="photo-grid">
+
+            <div class="photo-card" onclick="openGallery(11)">
+                <img src="images/vishisht-atithi/rajdoot-02/01.jpg" alt="राजदूत 2 फोटो 1">
+                <div class="photo-caption">राजदूत 2 – फोटो 1</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(12)">
+                <img src="images/vishisht-atithi/rajdoot-02/02.jpg" alt="राजदूत 2 फोटो 2">
+                <div class="photo-caption">राजदूत 2 – फोटो 2</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(13)">
+                <img src="images/vishisht-atithi/rajdoot-02/03.jpg" alt="राजदूत 2 फोटो 3">
+                <div class="photo-caption">राजदूत 2 – फोटो 3</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(14)">
+                <img src="images/vishisht-atithi/rajdoot-02/04.jpg" alt="राजदूत 2 फोटो 4">
+                <div class="photo-caption">राजदूत 2 – फोटो 4</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(15)">
+                <img src="images/vishisht-atithi/rajdoot-02/05.jpg" alt="राजदूत 2 फोटो 5">
+                <div class="photo-caption">राजदूत 2 – फोटो 5</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(16)">
+                <img src="images/vishisht-atithi/rajdoot-02/06.jpg" alt="राजदूत 2 फोटो 6">
+                <div class="photo-caption">राजदूत 2 – फोटो 6</div>
+            </div>
+			
+			 <div class="photo-card" onclick="openGallery(16)">
+                <img src="images/vishisht-atithi/rajdoot-02/07.jpg" alt="राजदूत 2 फोटो 6">
+                <div class="photo-caption">राजदूत 2 – फोटो 7</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         राजदूत 3
+    ========================== -->
+
+    <section class="guest-section">
+
+        <div class="guest-heading">
+            <h3>नेपाल के सम्मानित राजदूतगण</h3>
+            <p>कानपुर स्थित नेपाली धर्मसमाज के इतिहास में नेपाल के अनेक सम्मानित राजदूतों एवं विशिष्ट कूटनीतिज्ञों का आगमन एवं धर्मसमाज के सदस्यों तथा संस्थापक संरक्षकों से भेंट एक गौरवपूर्ण एवं स्मरणीय अध्याय रहा है।
+
+इन विशिष्ट अतिथियों के आगमन ने कानपुर के नेपाली समाज के साथ नेपाल के ऐतिहासिक एवं आत्मीय संबंधों को और मजबूत किया। उनकी स्मृतियाँ आज भी नेपाली धर्मसमाज के इतिहास का महत्वपूर्ण हिस्सा हैं।
+
+ऐसे ही सम्मानित राजदूतों एवं विशिष्ट अतिथियों की ऐतिहासिक तस्वीरें और स्मृतियाँ नीचे प्रस्तुत हैं।</p>
+        </div>
+
+        <div class="photo-grid">
+
+            <div class="photo-card" onclick="openGallery(17)">
+                <img src="images/vishisht-atithi/rajdoot-03/01.jpg" alt="राजदूत 3 फोटो 1">
+                <div class="photo-caption">राजदूत 3 – फोटो 1</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(18)">
+                <img src="images/vishisht-atithi/rajdoot-03/02.jpg" alt="राजदूत 3 फोटो 2">
+                <div class="photo-caption">राजदूत 3 – फोटो 2</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(19)">
+                <img src="images/vishisht-atithi/rajdoot-03/03.jpg" alt="राजदूत 3 फोटो 3">
+                <div class="photo-caption">राजदूत 3 – फोटो 3</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(20)">
+                <img src="images/vishisht-atithi/rajdoot-03/04.jpg" alt="राजदूत 3 फोटो 4">
+                <div class="photo-caption">राजदूत 3 – फोटो 4</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(21)">
+                <img src="images/vishisht-atithi/rajdoot-03/05.jpg" alt="राजदूत 3 फोटो 5">
+                <div class="photo-caption">राजदूत 3 – फोटो 5</div>
+            </div>
+
+            <div class="photo-card" onclick="openGallery(22)">
+                <img src="images/vishisht-atithi/rajdoot-03/06.jpg" alt="राजदूत 3 फोटो 6">
+                <div class="photo-caption">राजदूत 3 – फोटो 6</div>
+            </div>
+			
+			 <div class="photo-card" onclick="openGallery(22)">
+                <img src="images/vishisht-atithi/rajdoot-03/07.jpg" alt="राजदूत 3 फोटो 6">
+                <div class="photo-caption">राजदूत 3 – फोटो 7</div>
+            </div>
+			
+			 <div class="photo-card" onclick="openGallery(22)">
+                <img src="images/vishisht-atithi/rajdoot-03/08.jpg" alt="राजदूत 3 फोटो 6">
+                <div class="photo-caption">राजदूत 3 – फोटो 8</div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div>ॐ नमः शिवाय 🙏</div>
+    <div>आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</div>
+    <div>सभी अधिकार सुरक्षित</div>
+</footer>
+
+
+<!-- FULLSCREEN PHOTO VIEWER -->
+
+<div class="lightbox" id="lightbox">
+
+    <span class="close" onclick="closeGallery()">×</span>
+
+    <button class="prev" onclick="changePhoto(-1)">‹</button>
+
+    <img id="lightboxImage" src="" alt="विशिष्ट अतिथि">
+
+    <button class="next" onclick="changePhoto(1)">›</button>
+
+    <div class="counter" id="counter"></div>
+
+</div>
+
+
+<script>
+
+const photos = [
+
+    "images/vishisht-atithi/raja/01.jpg",
+    "images/vishisht-atithi/raja/02.jpg",
+    "images/vishisht-atithi/raja/03.jpg",
+    "images/vishisht-atithi/raja/04.jpg",
+    "images/vishisht-atithi/raja/05.jpg",
+
+    "images/vishisht-atithi/rajdoot-01/01.jpg",
+    "images/vishisht-atithi/rajdoot-01/02.jpg",
+    "images/vishisht-atithi/rajdoot-01/03.jpg",
+    "images/vishisht-atithi/rajdoot-01/04.jpg",
+    "images/vishisht-atithi/rajdoot-01/05.jpg",
+    "images/vishisht-atithi/rajdoot-01/06.jpg",
+
+    "images/vishisht-atithi/rajdoot-02/01.jpg",
+    "images/vishisht-atithi/rajdoot-02/02.jpg",
+    "images/vishisht-atithi/rajdoot-02/03.jpg",
+    "images/vishisht-atithi/rajdoot-02/04.jpg",
+    "images/vishisht-atithi/rajdoot-02/05.jpg",
+    "images/vishisht-atithi/rajdoot-02/06.jpg",
+
+    "images/vishisht-atithi/rajdoot-03/01.jpg",
+    "images/vishisht-atithi/rajdoot-03/02.jpg",
+    "images/vishisht-atithi/rajdoot-03/03.jpg",
+    "images/vishisht-atithi/rajdoot-03/04.jpg",
+    "images/vishisht-atithi/rajdoot-03/05.jpg",
+    "images/vishisht-atithi/rajdoot-03/06.jpg",
+
+    "images/vishisht-atithi/rajdoot-04/01.jpg",
+    "images/vishisht-atithi/rajdoot-04/02.jpg",
+    "images/vishisht-atithi/rajdoot-04/03.jpg",
+    "images/vishisht-atithi/rajdoot-04/04.jpg",
+    "images/vishisht-atithi/rajdoot-04/05.jpg",
+    "images/vishisht-atithi/rajdoot-04/06.jpg"
+];
+
+let currentPhoto = 0;
+
+function openGallery(index){
+    currentPhoto = index;
+    document.getElementById("lightbox").classList.add("show");
+    showPhoto();
+    document.body.style.overflow = "hidden";
+}
+
+function closeGallery(){
+    document.getElementById("lightbox").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+function showPhoto(){
+    document.getElementById("lightboxImage").src = photos[currentPhoto];
+
+    document.getElementById("counter").textContent =
+        (currentPhoto + 1) + " / " + photos.length;
+}
+
+function changePhoto(direction){
+    currentPhoto += direction;
+
+    if(currentPhoto < 0){
+        currentPhoto = photos.length - 1;
+    }
+
+    if(currentPhoto >= photos.length){
+        currentPhoto = 0;
+    }
+
+    showPhoto();
+}
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeGallery();
+    }
+
+    if(event.key === "ArrowLeft"){
+        changePhoto(-1);
+    }
+
+    if(event.key === "ArrowRight"){
+        changePhoto(1);
+    }
+
+});
+
+document.getElementById("lightbox").addEventListener("click",function(event){
+
+    if(event.target === this){
+        closeGallery();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
