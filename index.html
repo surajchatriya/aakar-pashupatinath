@@ -1,15 +1,37 @@
 <!doctype html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>आकार श्री पशुपतिनाथ नेपाली धर्मसमाज</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="logo-area"> <img src="logo.png" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज लोगो" class="logo-header-img" ></div><div><b>आकार श्री पशुपतिनाथ</b></div><div><small>नेपाली धर्मसमाज</small></div></div>
- <button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
- <nav><a href="#home">मुख्य पृष्ठ</a><a href="#notice">सूचना</a><a href="#daily">दैनिक कार्यक्रम</a><a href="#aarti">आरती</a><a href="#about">हमारे बारे में</a><a href="#samrakshak">संरक्षक</a><a href="itihas.html">मंदिर का इतिहास</a><a href="member_management.html">सदस्य</a><a href="#contact">संपर्क</a></nav>
+  <!-- ब्रांड एरिया (लोगो और टेक्स्ट) -->
+  <a class="brand" href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+    <div class="logo-area"> 
+      <img src="logo.png" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज लोगो" class="logo-header-img">
+    </div>
+    <!-- ये क्लास दोनों को ऊपर-नीचे रखेगी -->
+    <div class="brand-text">
+      <b>आकार श्री पशुपतिनाथ</b>
+      <small>नेपाली धर्मसमाज</small>
+    </div>
+  </a>
+
+  <button class="hamb" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  <nav>
+    <a href="#home">मुख्य पृष्ठ</a>
+    <a href="#notice">सूचना</a>
+    <a href="#daily">दैनिक कार्यक्रम</a>
+    <a href="#aarti">आरती</a>
+    <a href="#about">हमारे बारे में</a>
+    <a href="#samrakshak">संरक्षक</a>
+    <a href="itihas.html">मंदिर का इतिहास</a>
+    <a href="member_management.html">सदस्य</a>
+    <a href="#contact">संपर्क</a>
+  </nav>
 </header>
 
 <section id="home" class="hero">

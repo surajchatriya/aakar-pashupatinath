@@ -45,6 +45,43 @@
     object-fit: contain;
     display: block;
 }
+/* लोगो और टेक्स्ट को एक लाइन में रखने के लिए */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* अक्षरों को ऊपर-नीचे सेट करने का मुख्य कोड */
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ऊपर वाला मुख्य नाम */
+.brand-text b {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a1c1c; /* आपकी पसंद का नीला रंग */
+    line-height: 1.2;
+}
+
+/* नीचे वाला छोटा नाम */
+.brand-text small {
+    display: block;
+    font-size: 13px;
+    color: #444; /* गहरा ग्रे रंग */
+    margin-top: 2px;
+}
+
+/* लोगो का साइज फिक्स करने के लिए */
+.logo-header-img {
+    height: 50px; /* आप अपनी जरूरत अनुसार छोटा-बड़ा कर सकते हैं */
+    width: auto;
+    display: block;
+}
 @media (max-width: 768px) {
     .logo-img {
         width: 120px;
