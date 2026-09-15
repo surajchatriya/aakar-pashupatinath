@@ -82,6 +82,21 @@
     width: auto;
     display: block;
 }
+
+.profile-circle {
+    width: 100px;          /* Set your desired width */
+    height: 100px;         /* Height must match the width */
+    border-radius: 50%;   /* Makes the container a circle */
+    overflow: hidden;     /* Hides any image parts outside the circle */
+    display: inline-block; 
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Keeps the photo's original proportions without stretching */
+}
+
 @media (max-width: 768px) {
     .logo-img {
         width: 120px;
