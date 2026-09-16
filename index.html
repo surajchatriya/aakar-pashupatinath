@@ -431,87 +431,90 @@
      नया SECTION — दान एवं सहयोग
      बाकी original layout को नहीं बदला गया है
      ===================================================== -->
+```html
+<style>
+.donation-box{
+  max-width:900px;
+  margin:0 auto;
+  padding:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  text-align:center;
+  flex-wrap:wrap;
 
-<section id="donation" class="section cream">
+  /* सुंदर मंदिर जैसा background */
+  background:linear-gradient(135deg,#fff8e7,#fff1c7);
+  border:2px solid #d6a84f;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(120,80,20,0.15);
+}
 
- <div class="heading center">
-  <span>🙏 मंदिर सेवा में सहयोग</span>
+.donation-box img{
+  width:400px;
+  height:400px;
+  object-fit:contain;
 
-  <h2>दान एवं सहयोग</h2>
+  background:#ffffff;
+  padding:12px;
+  border-radius:12px;
+  border:2px solid #d6a84f;
+}
 
-  <p>
-   मंदिर एवं धर्मसमाज की सेवा के लिए
-   अपनी श्रद्धानुसार सहयोग करें।
-  </p>
- </div>
+.donation-info{
+  flex:1;
+  min-width:280px;
+}
 
+.donation-qr{
+  flex:0 0 370px;
+}
 
- <div class="donation-box">
+.donation-message{
+  font-weight:bold;
+  margin-top:15px;
+}
 
-  <h3>🛕 आकार श्री पशुपतिनाथ</h3>
+@media(max-width:600px){
+  .donation-box{
+    flex-direction:column;
+    padding:20px 12px;
+    gap:20px;
+  }
 
-  <p>
-   <strong>नेपाली धर्मसमाज</strong>
-  </p>
+  .donation-info,
+  .donation-qr{
+    width:100%;
+  }
 
-
-  <!--
-       अपना Donation / UPI QR Code
-       इस location पर रखें:
-
-       images/mandir-qr.png
-  -->
-
-  <img
-    src="images/mandir-qr.jpg"
-    alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज दान QR Code"
-  >
-
-
-  <h3>🙏 मंदिर सेवा हेतु दान एवं सहयोग</h3>
-
-
-  <p>
-   आपके द्वारा दिया गया सहयोग मंदिर की
-   <strong>
-    पूजा-पाठ, भंडारा, धार्मिक कार्यक्रम,
-    मंदिर रख-रखाव एवं समाज सेवा
-   </strong>
-   में उपयोग किया जाता है।
-  </p>
-
-
-  <p class="donation-message">
-   📱 QR कोड स्कैन करके अपनी श्रद्धानुसार
-   दान / सहयोग करें।
-  </p>
-
-
-  <p>
-   <em>
-    “आपका छोटा सा सहयोग,
-    मंदिर की सेवा में बड़ा योगदान है।”
-   </em>
-  </p>
-
-
-  <p>
-   <strong>📷 QR कोड स्कैन करें</strong>
-  </p>
+  .donation-box img{
+    width:380px;
+    height:380px;
+  }
+}
+</style>
+```
 
 
-  <p>
-   मंदिर एवं धर्मसमाज की सेवा में आपके सहयोग
-   के लिए हृदय से धन्यवाद।
-  </p>
-
-
-  <p>
-   <strong>🙏 हर हर महादेव 🙏</strong>
-  </p>
-
- </div>
-
+<section id="donation" class="section cream"> 
+<div class="heading center"> 
+<span>🙏 मंदिर सेवा में सहयोग</span> <h2>दान एवं सहयोग</h2> 
+<p>मंदिर एवं धर्मसमाज की सेवा के लिए अपनी श्रद्धानुसार सहयोग करें।</p> 
+</div> 
+<div class="donation-box"> 
+<div class="donation-info"> 
+<h3>🛕 आकार श्री पशुपतिनाथ</h3> <p><strong>नेपाली धर्मसमाज</strong></p> 
+<h3>🙏 मंदिर सेवा हेतु दान एवं सहयोग</h3> <p> आपके द्वारा दिया गया सहयोग मंदिर की <strong>पूजा-पाठ, भंडारा, धार्मिक कार्यक्रम, मंदिर रख-रखाव एवं समाज सेवा</strong> में उपयोग किया जाता है। </p> 
+<p class="donation-message"> 📱 QR कोड स्कैन करके अपनी श्रद्धानुसार दान / सहयोग करें। </p> 
+<p> <em>“आपका छोटा सा सहयोग, मंदिर की सेवा में बड़ा योगदान है।”</em> </p> 
+<p> मंदिर एवं धर्मसमाज की सेवा में आपके सहयोग के लिए हृदय से धन्यवाद। </p> 
+<p><strong>🙏 हर हर महादेव 🙏</strong></p> 
+</div> 
+<div class="donation-qr"> 
+<p><strong>📷 QR कोड स्कैन करें</strong></p> <img src="images/mandir-qr.jpg" alt="आकार श्री पशुपतिनाथ नेपाली धर्मसमाज दान QR Code"> 
+</div> 
+</div> 
 </section>
 
 
